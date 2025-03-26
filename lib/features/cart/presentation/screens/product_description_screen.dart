@@ -17,7 +17,6 @@ class ProductDescriptionScreen extends ConsumerStatefulWidget {
 
 class _ProductDescriptionScreenState
     extends ConsumerState<ProductDescriptionScreen> {
-  String _selectedSize = '42';
 
   @override
   Widget build(BuildContext context) {
