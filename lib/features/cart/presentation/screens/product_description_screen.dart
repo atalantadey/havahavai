@@ -80,19 +80,7 @@ class _ProductDescriptionScreenState
                       ),
                     ],
                   ),
-                  const SizedBox(height: 16),
-                  // Select Size
-                  Text('Select Size', style: AppStyles.titleStyle),
-                  const SizedBox(height: 8),
-                  Row(
-                    children: [
-                      _buildSizeOption('42'),
-                      const SizedBox(width: 8),
-                      _buildSizeOption('44'),
-                      const SizedBox(width: 8),
-                      _buildSizeOption('46'),
-                    ],
-                  ),
+                  
                   const SizedBox(height: 16),
                   // Description
                   Text('Description', style: AppStyles.titleStyle),
@@ -171,28 +159,4 @@ class _ProductDescriptionScreenState
     );
   }
 
-  Widget _buildSizeOption(String size) {
-    return GestureDetector(
-      onTap: () {
-        setState(() {
-          _selectedSize = size;
-        });
-      },
-      child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-        decoration: BoxDecoration(
-          border: Border.all(
-            color: _selectedSize == size ? AppColors.accent : Colors.grey,
-          ),
-          borderRadius: BorderRadius.circular(8),
-        ),
-        child: Text(
-          size,
-          style: AppStyles.subtitleStyle.copyWith(
-            color: _selectedSize == size ? AppColors.accent : Colors.black,
-          ),
-        ),
-      ),
-    );
-  }
 }
