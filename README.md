@@ -20,17 +20,17 @@ A modern, user-friendly shopping cart application built with **Flutter**. It all
 ### Catalog Screen
 The main screen displays a list of products with a discount carousel, search bar, and sort options.
 
-![Catalog Screen](https://github.com/atalantadey/havahavai/tree/main/assignment_screenshots/homescreen.png)
+![Catalog Screen](assignment_screenshots/homescreen.png)
 
 ### Product Description Screen
 View detailed information about a product, including its image, price, discount, description, and additional details.
 
-![Product Description Screen](https://github.com/atalantadey/havahavai/tree/main/assignment_screenshots/productscreen.png)
+![Product Description Screen](assignment_screenshots/productscreen.png)
 
 ### Cart Screen
 Manage your cart by viewing added items, adjusting quantities, and proceeding to checkout with a modern, gradient-styled button.
 
-![Cart Screen](https://github.com/atalantadey/havahavai/tree/main/assignment_screenshots/cartscreen.png)
+![Cart Screen](assignment_screenshots/cartscreen.png)
 
 ## Dependencies
 
