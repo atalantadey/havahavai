@@ -17,7 +17,7 @@ class ProductRepositoryImpl implements ProductRepository {
       final products = await remoteDataSource.fetchProducts(skip, limit);
       return Right(products);
     } catch (e) {
-      return Left(Exception(e.toString()));
+      return Left(e is Exception ? e : Exception(e.toString()));
     }
   }
 }

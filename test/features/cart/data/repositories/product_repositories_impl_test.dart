@@ -59,9 +59,10 @@ void main() {
       'should return an Exception when the data source call fails',
       () async {
         // Arrange
+        const errorMessage = 'Failed to fetch products';
         when(
           mockRemoteDataSource.fetchProducts(tSkip, tLimit),
-        ).thenThrow(Exception('Failed to fetch products'));
+        ).thenThrow(Exception(errorMessage));
 
         // Act
         final result = await repository.fetchProducts(tSkip, tLimit);
@@ -69,7 +70,11 @@ void main() {
         // Assert
         expect(
           result,
-          Left<Exception, List<Product>>(Exception('Failed to fetch products')),
+          isA<Left<Exception, List<Product>>>().having(
+            (left) => left.value.toString(),
+            'exception message',
+            'Exception: $errorMessage',
+          ),
         );
         verify(mockRemoteDataSource.fetchProducts(tSkip, tLimit)).called(1);
         verifyNoMoreInteractions(mockRemoteDataSource);

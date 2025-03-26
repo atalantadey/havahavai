@@ -56,9 +56,10 @@ void main() {
 
     test('should return an Exception when the repository call fails', () async {
       // Arrange
+      const errorMessage = 'Failed to fetch products';
       when(
         mockProductRepository.fetchProducts(tSkip, tLimit),
-      ).thenAnswer((_) async => Left(Exception('Failed to fetch products')));
+      ).thenAnswer((_) async => Left(Exception(errorMessage)));
 
       // Act
       final result = await fetchProducts(tSkip, tLimit);
@@ -66,7 +67,11 @@ void main() {
       // Assert
       expect(
         result,
-        Left<Exception, List<Product>>(Exception('Failed to fetch products')),
+        isA<Left<Exception, List<Product>>>().having(
+          (left) => left.value.toString(),
+          'exception message',
+          'Exception: $errorMessage',
+        ),
       );
       verify(mockProductRepository.fetchProducts(tSkip, tLimit)).called(1);
       verifyNoMoreInteractions(mockProductRepository);
